@@ -5,14 +5,16 @@ import java.util.HashMap;
 public class Incheckpaal {
     HashMap<Integer, String> ingecheckteOVKaarten = new HashMap<Integer, String>();
 	   private String station;
-	  
+	    private OVChipkaart ovChipkaart;
 	   private int id;
+	   
 		public static final double INCHECK_KOSTEN = 10;
 	    public Incheckpaal(int id,String station ) {
 	    	this.station = station;
 	    	
 	    	this.id=id;
 	    	}
+	    
 	  
 	    public String getStation() {
 	        return station;
@@ -34,6 +36,7 @@ public class Incheckpaal {
 	    	
 	    }
 	    public void uitchecken(OVChipkaart ovChipkaart) {
+	    	
 	        if (ovChipkaart.isIngecheckt()) {
 	            double teBetalenBedrag = 10.0;
 	            double saldo = ovChipkaart.getSaldo();

@@ -8,7 +8,7 @@ public class OVChipkaart {
 	private String stationstart;
 	public static final double INCHECK_KOSTEN = 2.5;
 	private boolean ingecheckt = false;
-
+	
 
 	
 	public OVChipkaart(int kaartnummer, double saldo, Date geldigTot) {

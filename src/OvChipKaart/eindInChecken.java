@@ -32,6 +32,8 @@ public class eindInChecken {
         incheckpalen.add(incheckpaal5);
         incheckpalen.add(incheckpaal6);
         
+        
+        
         // Toon de lijst van incheckpalen
         System.out.println("Beschikbare incheckpalen:");
         for (Incheckpaal incheckpaal : incheckpalen) {
@@ -59,17 +61,17 @@ public class eindInChecken {
         if (actie.equals("i")) {
             System.out.print("Hou je OV tegen de paal aan: ");
             geselecteerdeIncheckpaal.inchecken(ovChipkaartErik);
-            
+            if(ovChipkaartErik.isIngecheckt()) {
+            	ovChipkaartErik.setIngecheckt(false); // de kaart wordt uitgecheckt
+            	double kosten = ovChipkaartErik.getSaldo() - (incheckpaalId * 10);
+            	ovChipkaartErik.setSaldo(kosten); // schrijf het bedrag af van het saldo van de kaart
+                System.out.println("U heeft uitgecheckt. " + kosten + " euro is van uw saldo afgeschreven.");  
+                }else {
+                    System.out.println("U kunt niet uitchecken, want u heeft niet ingecheckt.");
+                }
+       
         }
    
-        if(ovChipkaartErik.isIngecheckt()) {
-        	ovChipkaartErik.setIngecheckt(false); // de kaart wordt uitgecheckt
-        	int kosten =ovChipkaartErik.getSaldo() - (aantalStations * 10);
-        	ovChipkaartErik.setSaldo(kosten); // schrijf het bedrag af van het saldo van de kaart
-            System.out.println("U heeft uitgecheckt. " + kosten + " euro is van uw saldo afgeschreven.");  
-            }else {
-                System.out.println("U kunt niet uitchecken, want u heeft niet ingecheckt.");
-            }
-   
+      
     }
 }
