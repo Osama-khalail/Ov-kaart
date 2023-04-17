@@ -1,24 +1,47 @@
 package OvChipKaart;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Incheckpaal {
-	
-	public void inchecken(OVChipkaart  ovChipkaart) {
-		double instaptarief = 20.00;
-		double saldo = ovChipkaart.getSaldo();
-		
-		
-		if(saldo < instaptarief) {
-			System.out.println("Saldo onvoldoende. U kant helaas niet inchecken.");
-		}else {
-			ovChipkaart.setSaldo(saldo - instaptarief);
-			System.out.println("inchecken is gelukt");
-		}
-		
-		
+    HashMap<Integer, String> ingecheckteOVKaarten = new HashMap<Integer, String>();
+	   private String station;
+	  
+	   private int id;
+		public static final double INCHECK_KOSTEN = 10;
+	    public Incheckpaal(int id,String station ) {
+	    	this.station = station;
+	    	
+	    	this.id=id;
+	    	}
+	  
+	    public String getStation() {
+	        return station;
+	    }
+	    public int getId() {
+	        return id;
+	    }
+
+	    public void inchecken(OVChipkaart inchecken) {
+	    	if (inchecken.getSaldo() < INCHECK_KOSTEN) {
+	    		System.out.println("Onvoldoende saldo om in te checken.");
+	    	}else {
+	    		inchecken.setstationstart(this.getStation());
+	    		inchecken.setSaldo(INCHECK_KOSTEN);
+	    		System.out.println("je bent in geceheckt in : "+inchecken.getstationstart());
+	    		System.out.println("jou saldo is : "+inchecken.getSaldo());
+	    	}
+	    	
+	    	
+	    }
+	    public void uitchecken(OVChipkaart uitchecken ) {
+	    	
+	    }
+	    
+	    
+
 		
 		
 	}
 	
 
-}
+

@@ -5,7 +5,8 @@ public class OVChipkaart {
 	private int kaartnummer;
 	private double saldo;
 	private Date geldigTot;
-	public static final double INCHECK_TARIEF = 2.50;
+	private String stationstart;
+	public static final double INCHECK_KOSTEN = 2.5;
 
 	
 	public OVChipkaart(int kaartnummer, double saldo, Date geldigTot) {
@@ -13,6 +14,14 @@ public class OVChipkaart {
 		 this.kaartnummer = kaartnummer;
 	     this.saldo = saldo;
 	     this.geldigTot = geldigTot;
+	    
+	}
+	public String getstationstart() {
+		return stationstart;
+	}
+	
+	public void setstationstart(String stationstart) {
+		this.stationstart=stationstart;
 	}
     public int getKaartnummer() {
         return kaartnummer;
@@ -27,7 +36,7 @@ public class OVChipkaart {
     }
     
     public void setSaldo(double saldo) {
-        this.saldo = saldo;
+        this.saldo = this.saldo -saldo;
     }
     
     public Date getGeldigTot() {
