@@ -33,9 +33,24 @@ public class Incheckpaal {
 	    	
 	    	
 	    }
-	    public void uitchecken(OVChipkaart uitchecken ) {
-	    	
+	    public void uitchecken(OVChipkaart ovChipkaart) {
+	        if (ovChipkaart.isIngecheckt()) {
+	            double teBetalenBedrag = 10.0;
+	            double saldo = ovChipkaart.getSaldo();
+	            if (saldo >= teBetalenBedrag) {
+	                ovChipkaart.setSaldo(saldo - teBetalenBedrag);
+	                ovChipkaart.setIngecheckt(false);
+	                System.out.println("Uitchecken geslaagd. Er is " + teBetalenBedrag + " euro van uw saldo afgeschreven.");
+	            } else {
+	                System.out.println("Uitchecken mislukt. Niet voldoende saldo op de kaart.");
+	            }
+	        } else {
+	            System.out.println("Uitchecken mislukt. Kaart is niet ingecheckt.");
+	        }
 	    }
+
+
+
 	    
 	    
 

@@ -7,6 +7,8 @@ public class OVChipkaart {
 	private Date geldigTot;
 	private String stationstart;
 	public static final double INCHECK_KOSTEN = 2.5;
+	private boolean ingecheckt = false;
+
 
 	
 	public OVChipkaart(int kaartnummer, double saldo, Date geldigTot) {
@@ -15,6 +17,12 @@ public class OVChipkaart {
 	     this.saldo = saldo;
 	     this.geldigTot = geldigTot;
 	    
+	}
+	public boolean isIngecheckt() {
+	    return ingecheckt;
+	}
+	public void setIngecheckt(boolean ingecheckt) {
+	    this.ingecheckt = ingecheckt;
 	}
 	public String getstationstart() {
 		return stationstart;
@@ -46,6 +54,7 @@ public class OVChipkaart {
     public void setGeldigTot(Date geldigTot) {
         this.geldigTot = geldigTot;
     }
+    
 
 
 }

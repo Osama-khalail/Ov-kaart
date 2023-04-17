@@ -61,7 +61,15 @@ public class eindInChecken {
             geselecteerdeIncheckpaal.inchecken(ovChipkaartErik);
             
         }
-        
+   
+        if(ovChipkaartErik.isIngecheckt()) {
+        	ovChipkaartErik.setIngecheckt(false); // de kaart wordt uitgecheckt
+        	int kosten =ovChipkaartErik.getSaldo() - (aantalStations * 10);
+        	ovChipkaartErik.setSaldo(kosten); // schrijf het bedrag af van het saldo van de kaart
+            System.out.println("U heeft uitgecheckt. " + kosten + " euro is van uw saldo afgeschreven.");  
+            }else {
+                System.out.println("U kunt niet uitchecken, want u heeft niet ingecheckt.");
+            }
    
     }
 }
